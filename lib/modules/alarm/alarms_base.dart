@@ -17,26 +17,26 @@ const Map<AlarmSeverity, Color> alarmSeverityColors = {
 };
 
 const Map<AlarmSeverity, String> alarmSeverityTranslations = {
-  AlarmSeverity.CRITICAL: 'Critical',
-  AlarmSeverity.MAJOR: 'Major',
-  AlarmSeverity.MINOR: 'Minor',
-  AlarmSeverity.WARNING: 'Warning',
-  AlarmSeverity.INDETERMINATE: 'Indeterminate',
+  AlarmSeverity.CRITICAL: 'Crítico',
+  AlarmSeverity.MAJOR: 'Grande',
+  AlarmSeverity.MINOR: 'Pequeno',
+  AlarmSeverity.WARNING: 'Alerta',
+  AlarmSeverity.INDETERMINATE: 'Indeterminado',
 };
 
 const Map<AlarmStatus, String> alarmStatusTranslations = {
-  AlarmStatus.ACTIVE_ACK: 'Active Acknowledged',
-  AlarmStatus.ACTIVE_UNACK: 'Active Unacknowledged',
-  AlarmStatus.CLEARED_ACK: 'Cleared Acknowledged',
-  AlarmStatus.CLEARED_UNACK: 'Cleared Unacknowledged',
+  AlarmStatus.ACTIVE_ACK: 'Ativo conhecido',
+  AlarmStatus.ACTIVE_UNACK: 'Ativo não conhecido',
+  AlarmStatus.CLEARED_ACK: 'Limpo reconhecido',
+  AlarmStatus.CLEARED_UNACK: 'Limpo não reconhecido',
 };
 
 mixin AlarmsBase on EntitiesBase<AlarmInfo, AlarmQuery> {
   @override
-  String get title => 'Alarms';
+  String get title => 'Alarmes';
 
   @override
-  String get noItemsFoundText => 'No alarms found';
+  String get noItemsFoundText => 'Nenhum alarme encontrado';
 
   @override
   Future<PageData<AlarmInfo>> fetchEntities(AlarmQuery query) {
@@ -55,12 +55,12 @@ mixin AlarmsBase on EntitiesBase<AlarmInfo, AlarmQuery> {
             dashboardTitle: alarm.originatorName, state: state);
       } else {
         showErrorNotification(
-            'You don\'t have permissions to perform this operation!');
+            'Você não tem permissão para realizar essa operação!');
       }
     } else {
       if (tbClient.isTenantAdmin()) {
         showWarnNotification(
-            'Mobile dashboard should be configured in device profile alarm rules!');
+            'O dashboard móvel deve ser configurado nas regras de alarme do perfil do dispositivo!');
       }
     }
   }

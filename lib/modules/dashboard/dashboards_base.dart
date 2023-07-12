@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,7 +15,7 @@ mixin DashboardsBase on EntitiesBase<DashboardInfo, PageLink> {
   String get title => 'Dashboards';
 
   @override
-  String get noItemsFoundText => 'No dashboards found';
+  String get noItemsFoundText => 'Nenhum dashboard encontrado';
 
   @override
   Future<PageData<DashboardInfo>> fetchEntities(PageLink pageLink) {
@@ -29,7 +31,7 @@ mixin DashboardsBase on EntitiesBase<DashboardInfo, PageLink> {
       navigateToDashboard(dashboard.id!.id!, dashboardTitle: dashboard.title);
     } else {
       showErrorNotification(
-          'You don\'t have permissions to perform this operation!');
+          'Você não tem permissão para realizar essa operação!');
     }
   }
 

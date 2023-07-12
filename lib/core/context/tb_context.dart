@@ -260,7 +260,7 @@ class TbContext {
         style: TextStyle(color: textColor),
       ),
       action: SnackBarAction(
-        label: 'Close',
+        label: 'Fechar',
         textColor: textColor,
         onPressed: () {
           messengerKey.currentState!

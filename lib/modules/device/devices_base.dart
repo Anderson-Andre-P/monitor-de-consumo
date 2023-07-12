@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:core';
 
 import 'package:flutter/material.dart';
@@ -15,10 +17,10 @@ import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
   @override
-  String get title => 'Devices';
+  String get title => 'Dispositivo';
 
   @override
-  String get noItemsFoundText => 'No devices found';
+  String get noItemsFoundText => 'Nenhum dispositivo encontrado';
 
   @override
   Future<PageData<EntityData>> fetchEntities(EntityDataQuery dataQuery) {
@@ -40,12 +42,12 @@ mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
             dashboardTitle: device.field('name'), state: state);
       } else {
         showErrorNotification(
-            'You don\'t have permissions to perform this operation!');
+            'Você não tem permissão para realizar essa operação!');
       }
     } else {
       if (tbClient.isTenantAdmin()) {
         showWarnNotification(
-            'Mobile dashboard should be configured in device profile!');
+            'O dashboard móvel deve ser configurado no perfil do dispositivo!');
       }
     }
   }
