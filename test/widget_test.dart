@@ -18,6 +18,7 @@ void main() {
     // Verify that our counter starts at 0.
     expect(find.byWidgetPredicate((widget) {
       if (widget is MaterialApp) {
+        print("Teste");
         return widget.title == 'ThingsBoard';
       }
       return false;
