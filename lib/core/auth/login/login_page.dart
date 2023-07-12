@@ -38,6 +38,8 @@ class _LoginPageState extends TbPageState<LoginPage> {
 
   final _loginFormKey = GlobalKey<FormBuilderState>();
 
+  // String? mail;
+
   @override
   void initState() {
     super.initState();
@@ -116,6 +118,9 @@ class _LoginPageState extends TbPageState<LoginPage> {
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       FormBuilderTextField(
+                                        // onChanged: (value) {
+                                        //   mail = value!;
+                                        // },
                                         name: 'username',
                                         keyboardType:
                                             TextInputType.emailAddress,
@@ -140,6 +145,12 @@ class _LoginPageState extends TbPageState<LoginPage> {
                                           builder: (BuildContext context,
                                               bool showPassword, child) {
                                             return FormBuilderTextField(
+                                              // onTap: () =>
+                                              //     print("Clicou entrar"),
+                                              // onChanged: (value) {
+                                              //   password = value!;
+                                              // },
+
                                               name: 'password',
                                               obscureText: !showPassword,
                                               validator: FormBuilderValidators
@@ -194,6 +205,9 @@ class _LoginPageState extends TbPageState<LoginPage> {
                                     padding:
                                         EdgeInsets.symmetric(vertical: 16)),
                                 onPressed: () {
+                                  // print("Clicou entrar");
+                                  // print(mail);
+                                  // OneSignal.shared.setEmail(email: '$mail');
                                   _login();
                                 },
                               ),

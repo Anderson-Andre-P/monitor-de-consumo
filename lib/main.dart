@@ -32,38 +32,36 @@ void main() async {
     print("Accepted permission: $accepted");
   });
 
-  OneSignal.shared.setNotificationWillShowInForegroundHandler(
-      (OSNotificationReceivedEvent event) {
-    // Will be called whenever a notification is received in foreground
-    // Display Notification, pass null param for not displaying the notification
-    event.complete(event.notification);
-  });
+  // OneSignal.shared.setNotificationWillShowInForegroundHandler(
+  //     (OSNotificationReceivedEvent event) {
+  //   // Will be called whenever a notification is received in foreground
+  //   // Display Notification, pass null param for not displaying the notification
+  //   event.complete(event.notification);
+  // });
 
-  OneSignal.shared
-      .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-    // Will be called whenever a notification is opened/button pressed.
-  });
+  // OneSignal.shared
+  //     .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+  //   // Will be called whenever a notification is opened/button pressed.
+  // });
 
-  OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
-    // Will be called whenever the permission changes
-    // (ie. user taps Allow on the permission prompt in iOS)
-  });
+  // OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
+  //   // Will be called whenever the permission changes
+  //   // (ie. user taps Allow on the permission prompt in iOS)
+  // });
 
-  OneSignal.shared
-      .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
-    // Will be called whenever the subscription changes
-    // (ie. user gets registered with OneSignal and gets a user ID)
-  });
+  // OneSignal.shared
+  //     .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
+  //   // Will be called whenever the subscription changes
+  //   // (ie. user gets registered with OneSignal and gets a user ID)
+  // });
 
-  OneSignal.shared.setEmailSubscriptionObserver(
-      (OSEmailSubscriptionStateChanges emailChanges) {
-    // Will be called whenever then user's email subscription changes
-    // (ie. OneSignal.setEmail(email) is called and the user gets registered
-  });
+  // OneSignal.shared.setEmailSubscriptionObserver(
+  //     (OSEmailSubscriptionStateChanges emailChanges) {
+  //   // Will be called whenever then user's email subscription changes
+  //   // (ie. OneSignal.setEmail(email) is called and the user gets registered
+  // });
 
-  final externalUserId =
-      'TESTE_ID'; // You will supply the external user id to the OneSignal SDK
-  OneSignal.shared.setExternalUserId(externalUserId);
+  // Pass in email provided by customer
 
   if (UniversalPlatform.isAndroid) {
     await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);
@@ -181,51 +179,55 @@ class ThingsboardAppState extends State<ThingsboardApp>
     return WlThemeWidget(
       appRouter.tbContext,
       wlThemedWidgetBuilder: (context, data, wlParams) => MaterialApp(
-          localizationsDelegates: [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          title: wlParams.appTitle!,
-          themeMode: ThemeMode.light,
-          home: TwoPageView(
-              controller: _mainPageViewController,
-              first: MaterialApp(
-                key: mainAppKey,
-                scaffoldMessengerKey: appRouter.tbContext.messengerKey,
-                localizationsDelegates: [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
-                title: wlParams.appTitle!,
-                theme: data,
-                themeMode: ThemeMode.light,
-                darkTheme: tbDarkTheme,
-                onGenerateRoute: appRouter.router.generator,
-                navigatorObservers: [appRouter.tbContext.routeObserver],
-              ),
-              second: MaterialApp(
-                key: dashboardKey,
-                // scaffoldMessengerKey: appRouter.tbContext.messengerKey,
-                localizationsDelegates: [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ],
-                supportedLocales: S.delegate.supportedLocales,
-                title: wlParams.appTitle!,
-                theme: data,
-                themeMode: ThemeMode.light,
-                darkTheme: tbDarkTheme,
-                home: MainDashboardPage(appRouter.tbContext,
-                    controller: _mainDashboardPageController),
-              ))),
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        title: wlParams.appTitle!,
+        themeMode: ThemeMode.light,
+        home: TwoPageView(
+          controller: _mainPageViewController,
+          first: MaterialApp(
+            key: mainAppKey,
+            scaffoldMessengerKey: appRouter.tbContext.messengerKey,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: wlParams.appTitle!,
+            theme: data,
+            themeMode: ThemeMode.light,
+            darkTheme: tbDarkTheme,
+            onGenerateRoute: appRouter.router.generator,
+            navigatorObservers: [appRouter.tbContext.routeObserver],
+          ),
+          second: MaterialApp(
+            key: dashboardKey,
+            // scaffoldMessengerKey: appRouter.tbContext.messengerKey,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            title: wlParams.appTitle!,
+            theme: data,
+            themeMode: ThemeMode.light,
+            darkTheme: tbDarkTheme,
+            home: MainDashboardPage(
+              appRouter.tbContext,
+              controller: _mainDashboardPageController,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fluro/fluro.dart';
@@ -291,7 +292,17 @@ class TbContext {
       log.debug('onUserLoaded: isAuthenticated=${tbClient.isAuthenticated()}');
       isUserLoaded = true;
       if (tbClient.isAuthenticated() && !tbClient.isPreVerificationToken()) {
-        log.debug('authUser: ${tbClient.getAuthUser()}');
+        // log.debug('authUser: ${tbClient.getAuthUser()}');
+        // log.debug('userId: ${tbClient.getAuthUser()!.userId}');
+
+        dynamic externalUserId = tbClient.getAuthUser()!.userId;
+        OneSignal.shared.setExternalUserId(externalUserId);
+
+        dynamic externalUserEmail = tbClient.getAuthUser()!.sub;
+        OneSignal.shared.setEmail(email: '$externalUserEmail');
+
+        print("Cheguei aquui");
+
         if (tbClient.getAuthUser()!.userId != null) {
           try {
             userDetails = await tbClient.getUserService().getUser();
