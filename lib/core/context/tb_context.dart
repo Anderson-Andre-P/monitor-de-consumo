@@ -7,15 +7,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:thingsboard_app/constants/app_constants.dart';
-import 'package:thingsboard_app/core/auth/oauth2/app_secret_provider.dart';
-import 'package:thingsboard_app/core/auth/oauth2/tb_oauth2_client.dart';
-import 'package:thingsboard_app/modules/main/main_page.dart';
-import 'package:thingsboard_app/utils/services/widget_action_handler.dart';
-import 'package:thingsboard_app/utils/services/wl_service.dart';
+import 'package:ie_tec_app/constants/app_constants.dart';
+import 'package:ie_tec_app/core/auth/oauth2/app_secret_provider.dart';
+import 'package:ie_tec_app/core/auth/oauth2/tb_oauth2_client.dart';
+import 'package:ie_tec_app/modules/main/main_page.dart';
+import 'package:ie_tec_app/utils/services/widget_action_handler.dart';
+import 'package:ie_tec_app/utils/services/wl_service.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
-import 'package:thingsboard_app/utils/services/tb_app_storage.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/utils/services/tb_app_storage.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
 import 'package:uni_links/uni_links.dart';
 
 enum NotificationType { info, warn, success, error }

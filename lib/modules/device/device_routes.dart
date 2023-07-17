@@ -1,9 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
-import 'package:thingsboard_app/config/routes/router.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/modules/device/devices_page.dart';
-import 'package:thingsboard_app/modules/main/main_page.dart';
+import 'package:ie_tec_app/config/routes/router.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/modules/device/devices_page.dart';
+import 'package:ie_tec_app/modules/main/main_page.dart';
 
 import 'device_details_page.dart';
 import 'devices_list_page.dart';

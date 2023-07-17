@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/generated/l10n.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/generated/l10n.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 class MorePage extends TbContextWidget {

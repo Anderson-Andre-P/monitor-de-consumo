@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:thingsboard_app/constants/app_constants.dart';
-import 'package:thingsboard_app/core/auth/web/tb_web_auth.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/constants/app_constants.dart';
+import 'package:ie_tec_app/core/auth/web/tb_web_auth.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
 import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:crypto/crypto.dart';
 

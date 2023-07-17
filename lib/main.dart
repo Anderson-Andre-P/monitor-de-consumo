@@ -4,10 +4,10 @@ import 'package:universal_platform/universal_platform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:thingsboard_app/config/routes/router.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/modules/dashboard/main_dashboard_page.dart';
-import 'package:thingsboard_app/widgets/two_page_view.dart';
+import 'package:ie_tec_app/config/routes/router.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/modules/dashboard/main_dashboard_page.dart';
+import 'package:ie_tec_app/widgets/two_page_view.dart';
 
 import 'config/themes/tb_theme.dart';
 import 'config/themes/wl_theme_widget.dart';
@@ -32,34 +32,34 @@ void main() async {
     print("Accepted permission: $accepted");
   });
 
-  // OneSignal.shared.setNotificationWillShowInForegroundHandler(
-  //     (OSNotificationReceivedEvent event) {
-  //   // Will be called whenever a notification is received in foreground
-  //   // Display Notification, pass null param for not displaying the notification
-  //   event.complete(event.notification);
-  // });
+  OneSignal.shared.setNotificationWillShowInForegroundHandler(
+      (OSNotificationReceivedEvent event) {
+    // Will be called whenever a notification is received in foreground
+    // Display Notification, pass null param for not displaying the notification
+    event.complete(event.notification);
+  });
 
-  // OneSignal.shared
-  //     .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-  //   // Will be called whenever a notification is opened/button pressed.
-  // });
+  OneSignal.shared
+      .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+    // Will be called whenever a notification is opened/button pressed.
+  });
 
-  // OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
-  //   // Will be called whenever the permission changes
-  //   // (ie. user taps Allow on the permission prompt in iOS)
-  // });
+  OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
+    // Will be called whenever the permission changes
+    // (ie. user taps Allow on the permission prompt in iOS)
+  });
 
-  // OneSignal.shared
-  //     .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
-  //   // Will be called whenever the subscription changes
-  //   // (ie. user gets registered with OneSignal and gets a user ID)
-  // });
+  OneSignal.shared
+      .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
+    // Will be called whenever the subscription changes
+    // (ie. user gets registered with OneSignal and gets a user ID)
+  });
 
-  // OneSignal.shared.setEmailSubscriptionObserver(
-  //     (OSEmailSubscriptionStateChanges emailChanges) {
-  //   // Will be called whenever then user's email subscription changes
-  //   // (ie. OneSignal.setEmail(email) is called and the user gets registered
-  // });
+  OneSignal.shared.setEmailSubscriptionObserver(
+      (OSEmailSubscriptionStateChanges emailChanges) {
+    // Will be called whenever then user's email subscription changes
+    // (ie. OneSignal.setEmail(email) is called and the user gets registered
+  });
 
   // Pass in email provided by customer
 

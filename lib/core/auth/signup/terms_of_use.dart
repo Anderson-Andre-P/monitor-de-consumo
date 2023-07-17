@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:html/parser.dart' as htmlparser;
 import 'package:html/dom.dart' as dom;
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/generated/l10n.dart';
-import 'package:thingsboard_app/widgets/tb_app_bar.dart';
-import 'package:thingsboard_app/widgets/tb_progress_indicator.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/generated/l10n.dart';
+import 'package:ie_tec_app/widgets/tb_app_bar.dart';
+import 'package:ie_tec_app/widgets/tb_progress_indicator.dart';
 
 class TermsOfUse extends TbPageWidget {
   TermsOfUse(TbContext tbContext) : super(tbContext);

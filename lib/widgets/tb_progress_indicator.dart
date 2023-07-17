@@ -3,9 +3,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:thingsboard_app/constants/assets_path.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+
+import '../constants/assets_path.dart';
 
 class TbProgressIndicator extends ProgressIndicator {
   final double size;
@@ -97,13 +98,15 @@ class _TbProgressIndicatorState extends State<TbProgressIndicator>
     } else {
       return Stack(
         children: [
-          SvgPicture.asset(ThingsboardImage.thingsboardCenter,
-              height: widget.size,
-              width: widget.size,
-              color: widget._getValueColor(context)),
+          SvgPicture.asset(
+            ThingsboardImage.ieTecCenter,
+            height: widget.size,
+            width: widget.size,
+            color: widget._getValueColor(context),
+          ),
           AnimatedBuilder(
             animation: _rotation!,
-            child: SvgPicture.asset(ThingsboardImage.thingsboardOuter,
+            child: SvgPicture.asset(ThingsboardImage.ieTecOuter,
                 height: widget.size,
                 width: widget.size,
                 color: widget._getValueColor(context)),

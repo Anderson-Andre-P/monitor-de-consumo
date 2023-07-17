@@ -1,9 +1,9 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/widgets.dart';
-import 'package:thingsboard_app/config/routes/router.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/utils/ui/qr_code_scanner.dart';
-import 'package:thingsboard_app/utils/ui/tb_recaptcha.dart';
+import 'package:ie_tec_app/config/routes/router.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/utils/ui/qr_code_scanner.dart';
+import 'package:ie_tec_app/utils/ui/tb_recaptcha.dart';
 
 class UiUtilsRoutes extends TbRoutes {
   late var qrCodeScannerHandler = Handler(

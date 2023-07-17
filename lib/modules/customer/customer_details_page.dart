@@ -1,5 +1,5 @@
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/entity/entity_details_page.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/entity/entity_details_page.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 class CustomerDetailsPage extends ContactBasedDetailsPage<Customer> {

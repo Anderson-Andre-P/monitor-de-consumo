@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/generated/l10n.dart';
-import 'package:thingsboard_app/modules/alarm/alarms_page.dart';
-import 'package:thingsboard_app/modules/device/devices_main_page.dart';
-import 'package:thingsboard_app/modules/home/home_page.dart';
-import 'package:thingsboard_app/modules/more/more_page.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/generated/l10n.dart';
+import 'package:ie_tec_app/modules/alarm/alarms_page.dart';
+import 'package:ie_tec_app/modules/device/devices_main_page.dart';
+import 'package:ie_tec_app/modules/home/home_page.dart';
+import 'package:ie_tec_app/modules/more/more_page.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 class TbMainNavigationItem {

@@ -6,11 +6,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:thingsboard_app/constants/app_constants.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/widgets/tb_progress_indicator.dart';
-import 'package:thingsboard_app/widgets/two_value_listenable_builder.dart';
+import 'package:ie_tec_app/constants/app_constants.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/widgets/tb_progress_indicator.dart';
+import 'package:ie_tec_app/widgets/two_value_listenable_builder.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

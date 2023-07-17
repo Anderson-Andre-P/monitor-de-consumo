@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thingsboard_app/utils/transition/page_transitions.dart';
+import 'package:ie_tec_app/utils/transition/page_transitions.dart';
 
 const int _tbPrimaryColorValue = 0xFF305680;
 const Color _tbPrimaryColor = Color(_tbPrimaryColorValue);

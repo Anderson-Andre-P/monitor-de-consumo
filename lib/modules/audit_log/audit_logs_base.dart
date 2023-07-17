@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/core/entity/entities_base.dart';
-import 'package:thingsboard_app/modules/audit_log/audit_log_details_page.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/core/entity/entities_base.dart';
+import 'package:ie_tec_app/modules/audit_log/audit_log_details_page.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 const Map<ActionType, String> actionTypeTranslations = {

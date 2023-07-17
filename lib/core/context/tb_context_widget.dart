@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
 
 abstract class RefreshableWidget extends Widget {
   refresh();

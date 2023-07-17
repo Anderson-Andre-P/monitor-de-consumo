@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:thingsboard_app/constants/assets_path.dart';
-import 'package:thingsboard_app/core/auth/login/login_page_background.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/core/context/tb_context_widget.dart';
-import 'package:thingsboard_app/generated/l10n.dart';
-import 'package:thingsboard_app/widgets/tb_app_bar.dart';
+import 'package:ie_tec_app/constants/assets_path.dart';
+import 'package:ie_tec_app/core/auth/login/login_page_background.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/core/context/tb_context_widget.dart';
+import 'package:ie_tec_app/generated/l10n.dart';
+import 'package:ie_tec_app/widgets/tb_app_bar.dart';
 
 class EmailVerificationPage extends TbPageWidget {
   final String _email;

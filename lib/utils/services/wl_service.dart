@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:thingsboard_app/config/themes/tb_theme_utils.dart';
-import 'package:thingsboard_app/config/themes/wl_theme_widget.dart';
-import 'package:thingsboard_app/constants/assets_path.dart';
-import 'package:thingsboard_app/core/context/tb_context.dart';
-import 'package:thingsboard_app/utils/utils.dart';
+import 'package:ie_tec_app/config/themes/tb_theme_utils.dart';
+import 'package:ie_tec_app/config/themes/wl_theme_widget.dart';
+import 'package:ie_tec_app/constants/assets_path.dart';
+import 'package:ie_tec_app/core/context/tb_context.dart';
+import 'package:ie_tec_app/utils/utils.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
 const DEFAULT_LOGO_URL = 'LOGO-PE';
