@@ -1,8 +1,8 @@
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:universal_platform/universal_platform.dart';
+import 'package:flutter/services.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:ie_tec_app/config/routes/router.dart';
 import 'package:ie_tec_app/core/context/tb_context.dart';
@@ -172,10 +172,15 @@ class ThingsboardAppState extends State<ThingsboardApp>
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.white,
-        statusBarColor: Colors.white,
-        systemNavigationBarIconBrightness: Brightness.light));
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle(
+    //       systemNavigationBarColor: Colors.black26,
+    //       statusBarColor: Colors.white,
+    //       systemNavigationBarIconBrightness: Brightness.light),
+    // );
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.immersiveSticky,
+    );
     return WlThemeWidget(
       appRouter.tbContext,
       wlThemedWidgetBuilder: (context, data, wlParams) => MaterialApp(
