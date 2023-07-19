@@ -8,7 +8,12 @@ import 'alarms_base.dart';
 class AlarmsList extends BaseEntitiesWidget<AlarmInfo, AlarmQuery>
     with AlarmsBase, EntitiesListStateBase {
   AlarmsList(
-      TbContext tbContext, PageKeyController<AlarmQuery> pageKeyController,
-      {searchMode = false})
-      : super(tbContext, pageKeyController, searchMode: searchMode);
+    TbContext tbContext,
+    PageKeyController<AlarmQuery> pageKeyController, {
+    searchMode = false,
+  }) : super(
+          tbContext,
+          pageKeyController,
+          searchMode: searchMode,
+        );
 }

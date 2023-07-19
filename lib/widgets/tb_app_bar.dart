@@ -16,16 +16,20 @@ class TbAppBar extends TbContextWidget implements PreferredSizeWidget {
   @override
   final Size preferredSize;
 
-  TbAppBar(TbContext tbContext,
-      {this.leading,
-      this.title,
-      this.actions,
-      this.elevation = 8,
-      this.shadowColor,
-      this.showLoadingIndicator = false})
-      : preferredSize =
-            Size.fromHeight(kToolbarHeight + (showLoadingIndicator ? 4 : 0)),
-        super(tbContext);
+  TbAppBar(
+    TbContext tbContext, {
+    this.leading,
+    this.title,
+    this.actions,
+    this.elevation = 8,
+    this.shadowColor,
+    this.showLoadingIndicator = false,
+  })  : preferredSize = Size.fromHeight(
+          kToolbarHeight + (showLoadingIndicator ? 4 : 0),
+        ),
+        super(
+          tbContext,
+        );
 
   @override
   _TbAppBarState createState() => _TbAppBarState();
