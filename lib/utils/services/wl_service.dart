@@ -9,7 +9,7 @@ import 'package:ie_tec_app/core/context/tb_context.dart';
 import 'package:ie_tec_app/utils/utils.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
 
-const DEFAULT_LOGO_URL = 'LOGO-PE';
+const DEFAULT_LOGO_URL = 'MONITOR-IE';
 
 class WlService {
   static final _defaultWLParams = _createDefaultWlParams();
@@ -24,28 +24,28 @@ class WlService {
       ThingsboardImage.thingsBoardWithTitle,
       height: 36 / 3 * 2,
       color: TbThemeUtils.tbPrimary,
-      semanticsLabel: 'ThingsBoard Logo');
+      semanticsLabel: 'Monitor IE');
 
   static final _defaultLoginLogo = SvgPicture.asset(
       ThingsboardImage.thingsBoardWithTitle,
       height: 50 / 3 * 2,
       color: TbThemeUtils.tbPrimary,
-      semanticsLabel: 'ThingsBoard Logo');
+      semanticsLabel: 'Monitor IE Logo');
 
   static WhiteLabelingParams _createDefaultWlParams() => WhiteLabelingParams(
       logoImageUrl: DEFAULT_LOGO_URL,
       logoImageChecksum: 'ce227e602495446086a0672d3a2f1d899203dd4d',
       logoImageHeight: 36,
-      appTitle: 'ThingsBoard PE',
+      appTitle: 'Monitor IE',
       favicon: Favicon(url: 'thingsboard.ico', type: 'image/x-icon'),
       faviconChecksum: '87059b3055f7ce8b8e43f18f470ed895a316f5ec',
       paletteSettings: PaletteSettings(
           primaryPalette: Palette(type: 'tb-primary'),
           accentPalette: Palette(type: 'tb-accent')),
-      helpLinkBaseUrl: 'https://thingsboard.io',
+      helpLinkBaseUrl: 'contato@ietecnologia.com',
       enableHelpLinks: true,
       showNameVersion: false,
-      platformName: 'ThingsBoard',
+      platformName: 'MonitorIE',
       platformVersion: '3.4.1PE');
 
   static LoginWhiteLabelingParams _createDefaultLoginWlParams() {
@@ -301,10 +301,10 @@ class WlService {
       image = SvgPicture.asset(ThingsboardImage.thingsBoardWithTitle,
           height: height,
           color: themeData.primaryColor,
-          semanticsLabel: 'ThingsBoard Logo');
+          semanticsLabel: 'Monitor IE Logo');
     } else {
       image = Utils.imageFromBase64(wlParams.logoImageUrl!,
-          height: height, semanticLabel: 'ThingsBoard Logo');
+          height: height, semanticLabel: 'Monitor IE Logo');
     }
     if (isLogin) {
       _loginLogo = image;
