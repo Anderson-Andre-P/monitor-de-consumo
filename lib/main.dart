@@ -172,15 +172,23 @@ class ThingsboardAppState extends State<ThingsboardApp>
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //       systemNavigationBarColor: Colors.black26,
-    //       statusBarColor: Colors.white,
-    //       systemNavigationBarIconBrightness: Brightness.light),
-    // );
-    SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.immersiveSticky,
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarDividerColor: Colors.white30,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarContrastEnforced: true,
+        //
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
+        systemStatusBarContrastEnforced: true,
+      ),
     );
+
+    // SystemChrome.setEnabledSystemUIMode(
+    //   SystemUiMode.immersiveSticky,
+    // );
     return WlThemeWidget(
       appRouter.tbContext,
       wlThemedWidgetBuilder: (context, data, wlParams) => MaterialApp(
