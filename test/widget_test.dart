@@ -1,27 +1,33 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// import 'package:flutter/material.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:ie_tec_app/core/auth/login/login_page.dart';
+// import 'package:ie_tec_app/core/context/tb_context.dart';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+// void main() {
+//   testWidgets('Teste de validação de e-mail inválido',
+//       (WidgetTester tester) async {
+//     final tbContext = TbContext();
+//     // Construa o widget do formulário de login.
+//     await tester.pumpWidget(MaterialApp(
+//       home: Scaffold(
+//         body: LoginPage(tbContext),
+//       ),
+//     ));
 
-import 'package:ie_tec_app/main.dart';
+//     // Encontre o campo de entrada para o e-mail (username).
+//     final emailField = find.byKey(Key('email_field'));
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(ThingsboardApp());
+//     // Insira um e-mail inválido no campo de e-mail.
+//     await tester.enterText(emailField, 'email_invalido');
 
-    // Verify that our counter starts at 0.
-    expect(find.byWidgetPredicate((widget) {
-      if (widget is MaterialApp) {
-        print("Teste");
-        return widget.title == 'ThingsBoard';
-      }
-      return false;
-    }), findsOneWidget);
-  });
-}
+//     // Tente enviar o formulário.
+//     await tester.tap(find.text(
+//         'Enviar')); // Substitua 'Enviar' pelo texto do botão de envio do formulário.
+//     await tester.pump();
+
+//     // Verifique se a mensagem de erro é exibida.
+//     expect(find.text('E-mail inválido'), findsOneWidget);
+//   });
+
+//   // Adicione mais testes de validação aqui, se necessário.
+// }

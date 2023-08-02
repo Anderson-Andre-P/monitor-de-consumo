@@ -96,10 +96,15 @@ class HomeDashboard extends TbContextWidget {
 class _HomeDashboardState extends TbContextState<HomeDashboard> {
   @override
   Widget build(BuildContext context) {
-    return dashboardUi.Dashboard(tbContext, home: true,
-        controllerCallback: (controller) {
-      controller.openDashboard(widget.dashboard.dashboardId!.id!,
-          hideToolbar: widget.dashboard.hideDashboardToolbar);
-    });
+    return dashboardUi.Dashboard(
+      tbContext,
+      home: true,
+      controllerCallback: (controller) {
+        controller.openDashboard(
+          widget.dashboard.dashboardId!.id!,
+          hideToolbar: widget.dashboard.hideDashboardToolbar,
+        );
+      },
+    );
   }
 }

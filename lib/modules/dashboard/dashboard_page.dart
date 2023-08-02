@@ -45,9 +45,10 @@ class _DashboardPageState extends TbPageState<DashboardPage> {
             valueListenable: dashboardTitleValue,
             builder: (context, title, widget) {
               return FittedBox(
-                  fit: BoxFit.fitWidth,
-                  alignment: Alignment.centerLeft,
-                  child: Text(title));
+                fit: BoxFit.fitWidth,
+                alignment: Alignment.centerLeft,
+                child: Text(title),
+              );
             },
           ),
         ),
