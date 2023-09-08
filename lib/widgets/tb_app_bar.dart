@@ -147,37 +147,39 @@ class _TbAppSearchBarState extends TbContextState<TbAppSearchBar> {
 
   AppBar buildSearchBar() {
     return AppBar(
-        centerTitle: true,
-        elevation: widget.elevation ?? 8,
-        shadowColor: widget.shadowColor ?? Color(0xFFFFFFFF).withAlpha(150),
-        title: TextField(
-            controller: _filter,
-            autofocus: true,
-            // cursorColor: Colors.white,
-            decoration: new InputDecoration(
-              border: InputBorder.none,
-              hintStyle: TextStyle(
-                color: Color(0xFF282828).withAlpha((255 * 0.38).ceil()),
-              ),
-              contentPadding:
-                  EdgeInsets.only(left: 15, bottom: 11, top: 15, right: 15),
-              hintText: widget.searchHint ?? 'Search',
-            )),
-        actions: [
-          ValueListenableBuilder(
-              valueListenable: _filter,
-              builder: (context, value, child) {
-                if (_filter.text.isNotEmpty) {
-                  return IconButton(
-                    icon: Icon(Icons.clear),
-                    onPressed: () {
-                      _filter.text = '';
-                    },
-                  );
-                } else {
-                  return Container();
-                }
-              })
-        ]);
+      centerTitle: true,
+      elevation: widget.elevation ?? 8,
+      shadowColor: widget.shadowColor ?? Color(0xFFFFFFFF).withAlpha(150),
+      title: TextField(
+          controller: _filter,
+          autofocus: true,
+          // cursorColor: Colors.white,
+          decoration: new InputDecoration(
+            border: InputBorder.none,
+            hintStyle: TextStyle(
+              color: Color(0xFF282828).withAlpha((255 * 0.38).ceil()),
+            ),
+            contentPadding:
+                EdgeInsets.only(left: 15, bottom: 11, top: 15, right: 15),
+            hintText: widget.searchHint ?? 'Search',
+          )),
+      actions: [
+        ValueListenableBuilder(
+          valueListenable: _filter,
+          builder: (context, value, child) {
+            if (_filter.text.isNotEmpty) {
+              return IconButton(
+                icon: Icon(Icons.clear),
+                onPressed: () {
+                  _filter.text = '';
+                },
+              );
+            } else {
+              return Container();
+            }
+          },
+        )
+      ],
+    );
   }
 }

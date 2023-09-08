@@ -31,9 +31,12 @@ class _DevicesListPageState extends TbPageState<DevicesListPage> {
 
   @override
   Widget build(BuildContext context) {
-    var devicesList = DevicesList(tbContext, _deviceQueryController,
-        searchMode: widget.searchMode,
-        displayDeviceImage: widget.deviceType == null);
+    var devicesList = DevicesList(
+      tbContext,
+      _deviceQueryController,
+      searchMode: widget.searchMode,
+      displayDeviceImage: widget.deviceType == null,
+    );
     PreferredSizeWidget appBar;
     if (widget.searchMode) {
       appBar = TbAppSearchBar(
@@ -88,7 +91,10 @@ class _DevicesListPageState extends TbPageState<DevicesListPage> {
         )
       ]);
     }
-    return Scaffold(appBar: appBar, body: devicesList);
+    return Scaffold(
+      appBar: appBar,
+      body: devicesList,
+    );
   }
 
   @override

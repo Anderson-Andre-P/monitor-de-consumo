@@ -62,214 +62,223 @@ class _LoginPageState extends TbPageState<LoginPage> {
         resizeToAvoidBottomInset: false,
         body: Stack(children: [
           LoginPageBackground(),
-          Positioned.fill(child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
-                  padding: EdgeInsets.fromLTRB(24, 71, 24, 24),
-                  child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                          minHeight: constraints.maxHeight - (71 + 24)),
-                      child: IntrinsicHeight(
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Row(children: [
-                                tbContext.wlService.loginLogoImage != null
-                                    ? tbContext.wlService.loginLogoImage!
-                                    : SizedBox(height: 25)
-                              ]),
-                              if (tbContext.wlService.loginShowNameVersion ==
-                                      true &&
-                                  !(tbContext.wlService.showNameBottom == true))
-                                Text(tbContext.wlService.platformNameAndVersion,
-                                    style: TextStyle(fontSize: 12, height: 2)),
-                              SizedBox(height: 32),
-                              Row(children: [
-                                Text('${S.of(context).loginNotification}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 28,
-                                        height: 36 / 28))
-                              ]),
-                              SizedBox(height: 48),
-                              if (tbContext.hasOAuthClients)
-                                _buildOAuth2Buttons(
-                                    tbContext.oauth2ClientInfos!),
-                              if (tbContext.hasOAuthClients)
-                                Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 10, bottom: 16),
-                                    child: Row(
+          Positioned.fill(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                    padding: EdgeInsets.fromLTRB(24, 71, 24, 24),
+                    child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                            minHeight: constraints.maxHeight - (71 + 24)),
+                        child: IntrinsicHeight(
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Row(children: [
+                                  tbContext.wlService.loginLogoImage != null
+                                      ? tbContext.wlService.loginLogoImage!
+                                      : SizedBox(height: 25)
+                                ]),
+                                if (tbContext.wlService.loginShowNameVersion ==
+                                        true &&
+                                    !(tbContext.wlService.showNameBottom ==
+                                        true))
+                                  Text(
+                                      tbContext
+                                          .wlService.platformNameAndVersion,
+                                      style:
+                                          TextStyle(fontSize: 12, height: 2)),
+                                SizedBox(height: 32),
+                                Row(children: [
+                                  Text('${S.of(context).loginNotification}',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 28,
+                                          height: 36 / 28))
+                                ]),
+                                SizedBox(height: 48),
+                                if (tbContext.hasOAuthClients)
+                                  _buildOAuth2Buttons(
+                                      tbContext.oauth2ClientInfos!),
+                                if (tbContext.hasOAuthClients)
+                                  Padding(
+                                      padding:
+                                          EdgeInsets.only(top: 10, bottom: 16),
+                                      child: Row(
+                                        children: [
+                                          Flexible(child: Divider()),
+                                          Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 16),
+                                            child: Text('OR'),
+                                          ),
+                                          Flexible(child: Divider())
+                                        ],
+                                      )),
+                                FormBuilder(
+                                    key: _loginFormKey,
+                                    autovalidateMode: AutovalidateMode.disabled,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
                                       children: [
-                                        Flexible(child: Divider()),
-                                        Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 16),
-                                          child: Text('OR'),
+                                        FormBuilderTextField(
+                                          // onChanged: (value) {
+                                          //   mail = value!;
+                                          // },
+                                          name: 'username',
+                                          keyboardType:
+                                              TextInputType.emailAddress,
+                                          validator:
+                                              FormBuilderValidators.compose([
+                                            FormBuilderValidators.required(
+                                                errorText:
+                                                    '${S.of(context).emailRequireText}'),
+                                            FormBuilderValidators.email(
+                                                errorText:
+                                                    '${S.of(context).emailInvalidText}')
+                                          ]),
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(),
+                                              labelText:
+                                                  '${S.of(context).email}'),
                                         ),
-                                        Flexible(child: Divider())
+                                        SizedBox(height: 28),
+                                        ValueListenableBuilder(
+                                            valueListenable:
+                                                _showPasswordNotifier,
+                                            builder: (BuildContext context,
+                                                bool showPassword, child) {
+                                              return FormBuilderTextField(
+                                                // onTap: () =>
+                                                //     print("Clicou entrar"),
+                                                // onChanged: (value) {
+                                                //   password = value!;
+                                                // },
+
+                                                name: 'password',
+                                                obscureText: !showPassword,
+                                                validator: FormBuilderValidators
+                                                    .compose([
+                                                  FormBuilderValidators.required(
+                                                      errorText:
+                                                          '${S.of(context).passwordRequireText}')
+                                                ]),
+                                                decoration: InputDecoration(
+                                                    suffixIcon: IconButton(
+                                                      icon: Icon(showPassword
+                                                          ? Icons.visibility
+                                                          : Icons
+                                                              .visibility_off),
+                                                      onPressed: () {
+                                                        _showPasswordNotifier
+                                                                .value =
+                                                            !_showPasswordNotifier
+                                                                .value;
+                                                      },
+                                                    ),
+                                                    border:
+                                                        OutlineInputBorder(),
+                                                    labelText:
+                                                        '${S.of(context).password}'),
+                                              );
+                                            })
                                       ],
                                     )),
-                              FormBuilder(
-                                  key: _loginFormKey,
-                                  autovalidateMode: AutovalidateMode.disabled,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      FormBuilderTextField(
-                                        // onChanged: (value) {
-                                        //   mail = value!;
-                                        // },
-                                        name: 'username',
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                        validator:
-                                            FormBuilderValidators.compose([
-                                          FormBuilderValidators.required(
-                                              errorText:
-                                                  '${S.of(context).emailRequireText}'),
-                                          FormBuilderValidators.email(
-                                              errorText:
-                                                  '${S.of(context).emailInvalidText}')
-                                        ]),
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(),
-                                            labelText:
-                                                '${S.of(context).email}'),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    TextButton(
+                                      onPressed: () {
+                                        _forgotPassword();
+                                      },
+                                      child: Text(
+                                        '${S.of(context).passwordForgotText}',
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            letterSpacing: 1,
+                                            fontSize: 12,
+                                            height: 16 / 12),
                                       ),
-                                      SizedBox(height: 28),
-                                      ValueListenableBuilder(
-                                          valueListenable:
-                                              _showPasswordNotifier,
-                                          builder: (BuildContext context,
-                                              bool showPassword, child) {
-                                            return FormBuilderTextField(
-                                              // onTap: () =>
-                                              //     print("Clicou entrar"),
-                                              // onChanged: (value) {
-                                              //   password = value!;
-                                              // },
-
-                                              name: 'password',
-                                              obscureText: !showPassword,
-                                              validator: FormBuilderValidators
-                                                  .compose([
-                                                FormBuilderValidators.required(
-                                                    errorText:
-                                                        '${S.of(context).passwordRequireText}')
-                                              ]),
-                                              decoration: InputDecoration(
-                                                  suffixIcon: IconButton(
-                                                    icon: Icon(showPassword
-                                                        ? Icons.visibility
-                                                        : Icons.visibility_off),
-                                                    onPressed: () {
-                                                      _showPasswordNotifier
-                                                              .value =
-                                                          !_showPasswordNotifier
-                                                              .value;
-                                                    },
-                                                  ),
-                                                  border: OutlineInputBorder(),
-                                                  labelText:
-                                                      '${S.of(context).password}'),
-                                            );
-                                          })
+                                    )
+                                  ],
+                                ),
+                                Spacer(),
+                                ElevatedButton(
+                                  child: Text('${S.of(context).login}'),
+                                  style: ElevatedButton.styleFrom(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 16)),
+                                  onPressed: () {
+                                    // OneSignal.shared.setEmail(email: '$mail');
+                                    _login();
+                                  },
+                                ),
+                                if (tbContext.hasSelfRegistration)
+                                  Column(
+                                    children: [
+                                      SizedBox(height: 8),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text('${S.of(context).newUserText}',
+                                              style: TextStyle(
+                                                  fontSize: 14,
+                                                  height: 20 / 14)),
+                                          TextButton(
+                                            onPressed: () {
+                                              _signup();
+                                            },
+                                            child: Text(
+                                              '${S.of(context).createAccount}',
+                                              style: TextStyle(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
+                                                  letterSpacing: 1,
+                                                  fontSize: 14,
+                                                  height: 20 / 14),
+                                            ),
+                                          )
+                                        ],
+                                      )
                                     ],
-                                  )),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      _forgotPassword();
-                                    },
-                                    child: Text(
-                                      '${S.of(context).passwordForgotText}',
-                                      style: TextStyle(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                          letterSpacing: 1,
-                                          fontSize: 12,
-                                          height: 16 / 12),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Spacer(),
-                              ElevatedButton(
-                                child: Text('${S.of(context).login}'),
-                                style: ElevatedButton.styleFrom(
-                                    padding:
-                                        EdgeInsets.symmetric(vertical: 16)),
-                                onPressed: () {
-                                  // print("Clicou entrar");
-                                  // print(mail);
-                                  // OneSignal.shared.setEmail(email: '$mail');
-                                  _login();
-                                },
-                              ),
-                              if (tbContext.hasSelfRegistration)
-                                Column(
-                                  children: [
-                                    SizedBox(height: 8),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text('${S.of(context).newUserText}',
-                                            style: TextStyle(
-                                                fontSize: 14, height: 20 / 14)),
-                                        TextButton(
-                                          onPressed: () {
-                                            _signup();
-                                          },
-                                          child: Text(
-                                            '${S.of(context).createAccount}',
-                                            style: TextStyle(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary,
-                                                letterSpacing: 1,
-                                                fontSize: 14,
-                                                height: 20 / 14),
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              if (tbContext.wlService.loginShowNameVersion ==
-                                      true &&
-                                  tbContext.wlService.showNameBottom == true)
-                                Column(
-                                  children: [
-                                    SizedBox(height: 38),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                            tbContext.wlService
-                                                .platformNameAndVersion,
-                                            style: TextStyle(fontSize: 12))
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              if (tbContext.wlService.loginShowNameVersion !=
-                                      true ||
-                                  tbContext.wlService.showNameBottom != true)
-                                SizedBox(
-                                    height:
-                                        tbContext.hasSelfRegistration ? 20 : 48)
-                            ]),
-                      )));
-            },
-          )),
+                                  ),
+                                if (tbContext.wlService.loginShowNameVersion ==
+                                        true &&
+                                    tbContext.wlService.showNameBottom == true)
+                                  Column(
+                                    children: [
+                                      SizedBox(height: 38),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                              tbContext.wlService
+                                                  .platformNameAndVersion,
+                                              style: TextStyle(fontSize: 12))
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                if (tbContext.wlService.loginShowNameVersion !=
+                                        true ||
+                                    tbContext.wlService.showNameBottom != true)
+                                  SizedBox(
+                                      height: tbContext.hasSelfRegistration
+                                          ? 20
+                                          : 48)
+                              ]),
+                        )));
+              },
+            ),
+          ),
           ValueListenableBuilder<bool>(
               valueListenable: _isLoginNotifier,
               builder: (BuildContext context, bool loading, child) {
@@ -279,22 +288,21 @@ class _LoginPageState extends TbPageState<LoginPage> {
                   var bottomPadding = data.padding.top;
                   bottomPadding += kToolbarHeight;
                   return SizedBox.expand(
-                      child: ClipRect(
-                          child: BackdropFilter(
-                              filter:
-                                  ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                              child: Container(
-                                decoration: new BoxDecoration(
-                                    color:
-                                        Colors.grey.shade200.withOpacity(0.2)),
-                                child: Container(
-                                  padding:
-                                      EdgeInsets.only(bottom: bottomPadding),
-                                  alignment: Alignment.center,
-                                  child: TbProgressIndicator(tbContext,
-                                      size: 50.0),
-                                ),
-                              ))));
+                    child: ClipRect(
+                      child: BackdropFilter(
+                        filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                        child: Container(
+                          decoration: new BoxDecoration(
+                              color: Colors.grey.shade200.withOpacity(0.2)),
+                          child: Container(
+                            padding: EdgeInsets.only(bottom: bottomPadding),
+                            alignment: Alignment.center,
+                            child: TbProgressIndicator(tbContext, size: 50.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 } else {
                   return SizedBox.shrink();
                 }

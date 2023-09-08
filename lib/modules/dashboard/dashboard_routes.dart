@@ -4,6 +4,7 @@ import 'package:ie_tec_app/config/routes/router.dart';
 import 'package:ie_tec_app/core/context/tb_context.dart';
 import 'package:ie_tec_app/modules/dashboard/dashboards_page.dart';
 import 'package:ie_tec_app/modules/dashboard/fullscreen_dashboard_page.dart';
+import 'package:stream_transform/stream_transform.dart';
 
 import 'dashboard_page.dart';
 

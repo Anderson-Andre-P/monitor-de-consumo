@@ -27,41 +27,25 @@ void main() async {
 
   OneSignal.shared.setAppId("c01b59e9-e423-46ef-8855-6bfc327ec126");
 
-// The promptForPushNotificationsWithUserResponse function will show the iOS or Android push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission
   OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
     print("Accepted permission: $accepted");
   });
 
   OneSignal.shared.setNotificationWillShowInForegroundHandler(
       (OSNotificationReceivedEvent event) {
-    // Will be called whenever a notification is received in foreground
-    // Display Notification, pass null param for not displaying the notification
     event.complete(event.notification);
   });
 
   OneSignal.shared
-      .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-    // Will be called whenever a notification is opened/button pressed.
-  });
+      .setNotificationOpenedHandler((OSNotificationOpenedResult result) {});
 
-  OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
-    // Will be called whenever the permission changes
-    // (ie. user taps Allow on the permission prompt in iOS)
-  });
+  OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {});
 
   OneSignal.shared
-      .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
-    // Will be called whenever the subscription changes
-    // (ie. user gets registered with OneSignal and gets a user ID)
-  });
+      .setSubscriptionObserver((OSSubscriptionStateChanges changes) {});
 
   OneSignal.shared.setEmailSubscriptionObserver(
-      (OSEmailSubscriptionStateChanges emailChanges) {
-    // Will be called whenever then user's email subscription changes
-    // (ie. OneSignal.setEmail(email) is called and the user gets registered
-  });
-
-  // Pass in email provided by customer
+      (OSEmailSubscriptionStateChanges emailChanges) {});
 
   if (UniversalPlatform.isAndroid) {
     await AndroidInAppWebViewController.setWebContentsDebuggingEnabled(true);

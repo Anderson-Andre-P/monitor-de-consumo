@@ -3,6 +3,7 @@ import 'package:ie_tec_app/core/context/tb_context.dart';
 import 'package:ie_tec_app/core/context/tb_context_widget.dart';
 import 'package:ie_tec_app/generated/l10n.dart';
 import 'package:thingsboard_pe_client/thingsboard_client.dart';
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class MorePage extends TbContextWidget {
   MorePage(TbContext tbContext) : super(tbContext);
@@ -75,8 +76,14 @@ class _MorePageState extends TbContextState<MorePage> {
                                     height: 20 / 14))
                           ]))),
                   onTap: () {
+                    dynamic externalUserId = tbClient.getAuthUser()!.userId;
+                    // OneSignal.shared.removeExternalUserId();
+                    OneSignal.shared.disablePush(true);
+                    OneSignal.shared.pauseInAppMessages(true);
+
                     tbClient.logout(
-                        requestConfig: RequestConfig(ignoreErrors: true));
+                      requestConfig: RequestConfig(ignoreErrors: true),
+                    );
                   }),
               Spacer(),
               if (tbContext.wlService.showNameVersion == true)

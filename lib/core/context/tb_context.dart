@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:package_info/package_info.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:ie_tec_app/constants/app_constants.dart';
 import 'package:ie_tec_app/core/auth/oauth2/app_secret_provider.dart';
 import 'package:ie_tec_app/core/auth/oauth2/tb_oauth2_client.dart';
@@ -292,7 +292,7 @@ class TbContext {
       log.debug('onUserLoaded: isAuthenticated=${tbClient.isAuthenticated()}');
       isUserLoaded = true;
       if (tbClient.isAuthenticated() && !tbClient.isPreVerificationToken()) {
-        // log.debug('authUser: ${tbClient.getAuthUser()}');
+        // log.debug('Data: ${tbClient.getAuthUser()}');
         // log.debug('userId: ${tbClient.getAuthUser()!.userId}');
 
         dynamic externalUserId = tbClient.getAuthUser()!.userId;
@@ -300,8 +300,6 @@ class TbContext {
 
         dynamic externalUserEmail = tbClient.getAuthUser()!.sub;
         OneSignal.shared.setEmail(email: '$externalUserEmail');
-
-        print("Cheguei aquui");
 
         if (tbClient.getAuthUser()!.userId != null) {
           try {
