@@ -47,7 +47,7 @@ mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
     } else {
       if (tbClient.isTenantAdmin()) {
         showWarnNotification(
-            'O dashboard móvel deve ser configurado no perfil do dispositivo!');
+            'O dashboard para dispositivos móveis deve ser configurado no perfil do dispositivo!');
       }
     }
   }
@@ -79,16 +79,24 @@ mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
 }
 
 class DeviceQueryController extends PageKeyController<EntityDataQuery> {
-  DeviceQueryController(
-      {int pageSize = 20, String? searchText, String? deviceType, bool? active})
-      : super(EntityQueryApi.createDefaultDeviceQuery(
+  DeviceQueryController({
+    int pageSize = 20,
+    String? searchText,
+    String? deviceType,
+    bool? active,
+  }) : super(
+          EntityQueryApi.createDefaultDeviceQuery(
             pageSize: pageSize,
             searchText: searchText,
             deviceType: deviceType,
-            active: active));
+            active: active,
+          ),
+        );
 
   @override
-  EntityDataQuery nextPageKey(EntityDataQuery deviceQuery) =>
+  EntityDataQuery nextPageKey(
+    EntityDataQuery deviceQuery,
+  ) =>
       deviceQuery.next();
 
   onSearchText(String searchText) {
@@ -103,11 +111,14 @@ class DeviceCard extends TbContextWidget {
   final bool listWidgetCard;
   final bool displayImage;
 
-  DeviceCard(TbContext tbContext,
-      {required this.device,
-      this.listWidgetCard = false,
-      this.displayImage = false})
-      : super(tbContext);
+  DeviceCard(
+    TbContext tbContext, {
+    required this.device,
+    this.listWidgetCard = false,
+    this.displayImage = false,
+  }) : super(
+          tbContext,
+        );
 
   @override
   _DeviceCardState createState() => _DeviceCardState();
