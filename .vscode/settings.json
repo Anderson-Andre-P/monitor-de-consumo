@@ -1,20 +1,24 @@
-// {
-//   // "git.enabled": false,
-//   "files.exclude": {
-//     ".vscode": false,
-//     ".husky": true,
-//     ".gitignore": true,
-//     ".metadata": true,
-//     "build": true,
-//     "test": true,
-//     ".flutter-plugins": true,
-//     ".flutter-plugins-dependencies": true,
-//     "LICENSE": true,
-//     "pubspec.lock": true,
-//     "README.md": true,
-//     ".dart_tool": true,
-//     "android": false,
-//     "ios": true,
-//     "assets": false,
-//   }
-// }
+{
+  // "git.enabled": false,
+  "files.exclude": {
+    ".vscode": false,
+    ".husky": true,
+    ".gitignore": true,
+    ".metadata": true,
+    "build": true,
+    "test": true,
+    ".flutter-plugins": true,
+    ".flutter-plugins-dependencies": true,
+    "LICENSE": true,
+    "pubspec.lock": true,
+    "README.md": true,
+    ".dart_tool": true,
+    "android": false,
+    "ios": true,
+    "assets": false,
+    ".idea": true,
+    ".github": true,
+    // "data.json": true,
+    "monitorie_thingsboard.iml": true,
+  }
+}
