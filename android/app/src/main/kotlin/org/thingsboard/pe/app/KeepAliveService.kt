@@ -1,4 +1,4 @@
-package org.thingsboard.pe.app
+package app.br.com.monitorie
 
 import android.app.Service
 import android.content.Intent
