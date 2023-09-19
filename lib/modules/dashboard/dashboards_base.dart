@@ -164,55 +164,51 @@ class _DashboardGridCardState extends TbContextState<DashboardGridCard> {
           colorBlendMode: BlendMode.overlay,
           semanticsLabel: 'Dashboard');
     }
-    return InkWell(
-      onTap: () {},
-      highlightColor: Colors.black12,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(
-          4,
-        ),
-        child: Column(
-          children: [
-            Expanded(
-              child: Stack(
-                children: [
-                  SizedBox.expand(
-                    child: FittedBox(
-                      clipBehavior: Clip.hardEdge,
-                      fit: BoxFit.cover,
-                      child: image,
-                    ),
-                  )
-                ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(
+        4,
+      ),
+      child: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                SizedBox.expand(
+                  child: FittedBox(
+                    clipBehavior: Clip.hardEdge,
+                    fit: BoxFit.cover,
+                    child: image,
+                  ),
+                )
+              ],
+            ),
+          ),
+          Divider(
+            height: 1,
+          ),
+          Container(
+            height: 44,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 6,
               ),
-            ),
-            Divider(
-              height: 1,
-            ),
-            Container(
-              height: 44,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 6,
-                ),
-                child: Center(
-                  child: AutoSizeText(
-                    widget.dashboard.title,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    minFontSize: 12,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14,
-                      height: 20 / 14,
-                    ),
+              child: Center(
+                child: AutoSizeText(
+                  widget.dashboard.title,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  minFontSize: 12,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    height: 20 / 14,
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
