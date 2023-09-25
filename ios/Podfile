@@ -35,6 +35,11 @@ target 'Runner' do
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
 
+target 'OneSignalNotificationServiceExtension' do
+  use_frameworks!
+  pod 'OneSignalXCFramework',  '>= 3.0.0', '< 4.0'
+end
+
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
@@ -43,7 +48,3 @@ post_install do |installer|
 end
 
 
-target 'OneSignalNotificationServiceExtension' do
-  use_frameworks!
-  pod 'OneSignalXCFramework', '>= 3.4.3', '< 4.0'
-end
