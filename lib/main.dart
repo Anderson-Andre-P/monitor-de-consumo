@@ -1,4 +1,6 @@
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:flutter/services.dart';
 
@@ -19,10 +21,10 @@ final appRouter = ThingsboardAppRouter();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-//  await FlutterDownloader.initialize();
-//  await Permission.storage.request();
+  await FlutterDownloader.initialize();
+  await Permission.storage.request();
+  await Permission.notification.request();
 
-//Remove this method to stop OneSignal Debugging
   OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 
   OneSignal.shared.setAppId("c01b59e9-e423-46ef-8855-6bfc327ec126");

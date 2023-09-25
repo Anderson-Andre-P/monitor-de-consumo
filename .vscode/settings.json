@@ -14,11 +14,10 @@
     "README.md": true,
     ".dart_tool": true,
     "android": false,
-    "ios": true,
+    // "ios": true,
     "assets": false,
     ".idea": true,
     ".github": true,
-    // "data.json": true,
     "monitorie_thingsboard.iml": true,
   }
 }
