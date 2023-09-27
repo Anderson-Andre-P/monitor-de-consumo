@@ -31,6 +31,10 @@ class _HomePageState extends TbContextState<HomePage>
     super.dispose();
   }
 
+  getError() {
+    throw Exception("something went wrong");
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);

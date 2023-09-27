@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -17,10 +19,19 @@ import 'generated/l10n.dart';
 
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
+import 'widgets/custom_error_widget.dart';
+
 final appRouter = ThingsboardAppRouter();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.dumpErrorToConsole(details);
+    log(details.exceptionAsString());
+    runApp(CustomErrorWidget(errorMessage: details.exceptionAsString()));
+  };
+
   await FlutterDownloader.initialize();
   await Permission.storage.request();
   await Permission.notification.request();
