@@ -2,7 +2,6 @@
   // "git.enabled": false,
   "files.exclude": {
     ".vscode": false,
-    ".husky": true,
     ".gitignore": true,
     ".metadata": true,
     "build": true,
