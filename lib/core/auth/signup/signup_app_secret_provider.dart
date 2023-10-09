@@ -10,6 +10,7 @@ abstract class SignUpAppSecretProvider {
 class _LocalSignUpAppSecretProvider implements SignUpAppSecretProvider {
   @override
   Future<String> getSignUpAppSecret() async {
-    return ThingsboardAppConstants.thingsboardSignUpAppSecret;
+    // return ThingsboardAppConstants.thingsboardSignUpAppSecret;
+    return "Null";
   }
 }

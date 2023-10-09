@@ -1,44 +1,41 @@
 import 'dart:developer';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:universal_platform/universal_platform.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:ie_tec_app/config/routes/router.dart';
 import 'package:ie_tec_app/core/context/tb_context.dart';
 import 'package:ie_tec_app/modules/dashboard/main_dashboard_page.dart';
 import 'package:ie_tec_app/widgets/two_page_view.dart';
-
 import 'config/themes/tb_theme.dart';
 import 'config/themes/wl_theme_widget.dart';
 import 'generated/l10n.dart';
-
 import 'package:onesignal_flutter/onesignal_flutter.dart';
-
 import 'widgets/custom_error_widget.dart';
 
 final appRouter = ThingsboardAppRouter();
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await dotenv.load(fileName: ".env");
 
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.dumpErrorToConsole(details);
     log(details.exceptionAsString());
     runApp(CustomErrorWidget(errorMessage: details.exceptionAsString()));
   };
-
   await FlutterDownloader.initialize();
   await Permission.storage.request();
   await Permission.notification.request();
 
   OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
 
-  OneSignal.shared.setAppId("c01b59e9-e423-46ef-8855-6bfc327ec126");
+  OneSignal.shared.setAppId(dotenv.env['ONE_SIGNAL_APP_ID']!);
 
   OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
     print("Accepted permission: $accepted");

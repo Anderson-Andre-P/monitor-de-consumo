@@ -10,6 +10,7 @@ abstract class AppSecretProvider {
 class _LocalAppSecretProvider implements AppSecretProvider {
   @override
   Future<String> getAppSecret() async {
-    return ThingsboardAppConstants.thingsboardOAuth2AppSecret;
+    // return ThingsboardAppConstants.thingsboardOAuth2AppSecret;
+    return "Null";
   }
 }
